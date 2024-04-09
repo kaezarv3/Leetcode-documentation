@@ -1,0 +1,35 @@
+# # Definition for singly-linked list.
+# from typing import Optional
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+# class Solution:    
+#     def condenser(self, fatl: list[str]):
+#         res = [str(item) for item in fatl]
+#         return res
+#     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+#         res = []
+#         res2 = []
+#         rev = l1.reverse() 
+#         rev2 = l2.reverse()
+#         for item in rev:
+#             res.append(str(item.val))
+#         for item in rev2:
+#             res2.append(str(item.val))
+#         return self.condenser(res2) + self.condenser(res)
+# sol = Solution()
+# print(sol.addTwoNumbers())
+
+#linked lists are weird and still hard to me
+
+
+
+    
+
+
+    
+
+
+
+

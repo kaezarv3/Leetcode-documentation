@@ -1,0 +1,40 @@
+ # https://leetcode.com/problems/make-the-string-great/?envType=daily-question&envId=2024-04-05
+
+''' 
+Given a string s of lower and upper case English letters.
+
+A good string is a string which doesn't have two adjacent characters s[i] and s[i + 1] where:
+
+0 <= i <= s.length - 2
+s[i] is a lower-case letter and s[i + 1] is the same letter but in upper-case or vice-versa.
+To make the string good, you can choose two adjacent characters that make the string bad and remove them. You can keep doing this until the string becomes good.
+
+Return the string after making it good. The answer is guaranteed to be unique under the given constraints.
+
+Notice that an empty string is also good.
+'''
+def makeGood(s: str):
+    if s == '':
+        return s
+     
+    running_re = s 
+    si = len(running_re)
+    for i in range(len(running_re)-1):
+        first = running_re[i]
+        second = running_re[i+1]
+        # Here I'm going to check if first and second are opposites 
+        # There are always going to be two letters _ _ 
+        if ((first.isupper() and second.islower()) or (first.islower() and second.isupper())) and (first.lower() == second.lower()):
+            # Remove first and second from string
+            running_re = running_re[:i] + running_re[i+2:]
+            return makeGood(running_re)
+
+    return running_re
+
+# WORKING SOLUTION
+
+
+
+
+
+
