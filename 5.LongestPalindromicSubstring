@@ -1,0 +1,78 @@
+import math 
+"""Given a string s, return the longest 
+palindromic
+ 
+substring
+ in s.
+
+ 
+
+Example 1:
+
+Input: s = "babad"
+Output: "bab"
+Explanation: "aba" is also a valid answer.
+Example 2:
+
+Input: s = "cbbd"
+Output: "bb"
+ 
+
+Constraints:
+
+1 <= s.length <= 1000
+s consist of only digits and English letters."""
+
+# Go through each letter and check to the right and then the left and keep going that way.
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        pal_list = []
+        for i in range(len(s)):
+            if i == 0:
+                continue
+            # Pick a center and expand on it until we dont have a palidrome, this is for an even palidrome
+            if s[i] == s[i+1]:
+                pass
+
+
+    def paliCheck(self, s:str) -> bool:
+        if len(s) % 2 == 0:
+            # If string is even, divide it by 2 and see if each half is the same when one is backwards.
+            new1 = s[:math.floor(len(s)/2)] 
+            new2 = s[(math.floor(len(s)/2)):]
+            return new1 == new2[::-1]
+        else:
+             # - middle index / middle letter
+            new1 = s[:math.floor(len(s)/2)] 
+            new2 = s[(math.floor(len(s)/2)) + 1:]
+            return new1 == new2[::-1]
+            # if odd find center remove it and check if each half without the middle part is the same backwards 
+
+
+# class Solution:
+#     def longestPalindrome(self, s: str) -> str:
+#         if not s:
+#             return ""
+        
+#         def expand_around_center(left, right):
+#             while left >= 0 and right < len(s) and s[left] == s[right]:
+#                 left -= 1
+#                 right += 1
+#             return s[left+1:right]
+        
+#         longest_palindrome = ""
+        
+#         for i in range(len(s)):
+#             # Check for odd length palindromes
+#             palindrome1 = expand_around_center(i, i)
+#             # Check for even length palindromes
+#             palindrome2 = expand_around_center(i, i + 1)
+            
+#             longest_palindrome = max(longest_palindrome, palindrome1, palindrome2, key=len)
+        
+#         return longest_palindrome
+
+# ------------------------------------ from AI --------------------------------------------------- Works ok prob
+
+
+        
