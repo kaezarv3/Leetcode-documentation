@@ -1,4 +1,4 @@
-
+# Come back to this one 
 """
 Given a string array words, return an array of all characters that show up in all strings within the words (including duplicates). 
 You may return the answer in any order.
@@ -16,6 +16,7 @@ Output: ["c","o"]
 class Solution:
     def commonChars(self, words: list[str]) -> list[str]:
         frequency = []
+        master = {}
         for word in words:
             res = {}
             for ch in word:
@@ -24,6 +25,9 @@ class Solution:
                 else:
                     res[ch] = 1
             frequency.append(res)
+            # Here is where we would analyze the frequency after each word. Implement some sort of small section check while 
+    
+
         print(frequency)
     
 words = ["cool","lock","cook"]
