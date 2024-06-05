@@ -1,0 +1,96 @@
+# Valid Sudoku
+# For my methodology, I would like to rephrase It
+# Each curr_row must contain 1-9, Each column must contain 1-9
+# A curr_row in this case is already list
+# A column consists of the xth value in all the lists from our given input, For example Column 0 would be the 0th index of each list.
+
+class Solution:
+    def horizontalChecker(self, board: list[list[str]]) -> bool:
+            for i in range(9):
+                row = board[i]
+                dupecheck = {}
+                for k in row:
+                    if k == ".":
+                        continue   
+                    if k in dupecheck:
+                        dupecheck[k] +=1
+                    else:
+                        dupecheck[k] = 1
+                for l in dupecheck.values():
+                    if l != 1:
+                        return False
+            return True    
+
+    def threebythreeCheck(self, board: list[list[str]] ) -> bool:
+        """Traverses a 3x3 section of a 9x9 2d array given a valid Starting point"""
+        toplefts = [[0,0],[0,3],[0,6],[3,0],[3,3],[3,6],[6,0],[6,3],[6,6]]        
+        for item in toplefts:
+            x = item[0]
+            y = item[1]
+            res = {}
+            for i in range(x, x+3):
+                for j in range(y, y+3):
+                    if board[i][j] == ".":
+                        continue
+                    if board[i][j] in res:
+                        res[board[i][j]] += 1
+                    else:
+                        res[board[i][j]] = 1
+            for thing in res.values():
+                if thing != 1:
+                    return False
+        return True
+        
+        
+    def isValidSudoku(self, board: list[list[str]]) -> bool:
+        reshelp = []    
+        for i in range(9):
+            column = []
+            for j in range(9):
+                column.append(board[j][i])
+            reshelp.append(column)
+        
+        result = self.horizontalChecker(reshelp) and self.horizontalChecker(board) and self.threebythreeCheck(board)
+
+        return result
+
+                
+
+
+sol = Solution()
+
+
+# board = [["5","3",".",".","7",".",".",".","."]
+#         ,["6",".",".","1","9","5",".",".","."]
+#         ,[".","9","8",".",".",".",".","6","."]
+#         ,["8",".",".",".","6",".",".",".","3"]
+#         ,["4",".",".","8",".","3",".",".","1"]
+#         ,["7",".",".",".","2",".",".",".","6"]
+#         ,[".","6",".",".",".",".","2","8","."]
+#         ,[".",".",".","4","1","9",".",".","5"]
+#         ,[".",".",".",".","8",".",".","7","9"]]
+
+# board = [["8","3",".",".","7",".",".",".","."]
+# ,["6",".",".","1","9","5",".",".","."]
+# ,[".","9","8",".",".",".",".","6","."]
+# ,["8",".",".",".","6",".",".",".","3"]
+# ,["4",".",".","8",".","3",".",".","1"]
+# ,["7",".",".",".","2",".",".",".","6"]
+# ,[".","6",".",".",".",".","2","8","."]
+# ,[".",".",".","4","1","9",".",".","5"]
+# ,[".",".",".",".","8",".",".","7","9"]]
+
+
+
+board = [[".",".",".",".","5",".",".","1","."],
+         [".","4",".","3",".",".",".",".","."],
+         [".",".",".",".",".","3",".",".","1"],
+         ["8",".",".",".",".",".",".","2","."],
+         [".",".","2",".","7",".",".",".","."],
+         [".","1","5",".",".",".",".",".","."],
+         [".",".",".",".",".","2",".",".","."],
+         [".","2",".","9",".",".",".",".","."],
+         [".",".","4",".",".",".",".",".","."]]
+
+
+print(sol.isValidSudoku(board)) 
