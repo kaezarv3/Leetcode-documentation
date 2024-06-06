@@ -10,11 +10,15 @@ Your solution must use only constant extra space.
 class Solution:
     def twoSum(self, numbers: list[int], target: int) -> list[int]:
         res = []
-        for i in range(len(numbers)):
-            for j in range(len(numbers)):
-                if numbers[j] == numbers[i] and j == i:
+        # remove duplicates 
+        # Cannot Use set, Look up correct solution for it
+        s = numbers
+        for i in range(len(s)):
+            for j in range(len(s)):
+                if s[j] == s[i] and j == i:
                     continue
-                if numbers[j] + numbers[i] == target:
+                if s[j] + s[i] == target:
+                    print(s[j], s[i], "==", s[j] + s[i], "==", target)
                     res.append(i + 1)
                     res.append(j + 1)
                     return res
