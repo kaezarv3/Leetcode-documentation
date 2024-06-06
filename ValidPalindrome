@@ -1,0 +1,60 @@
+# A phrase is a palindrome if, after converting all uppercase letters into 
+# lowercase letters and removing all non-alphanumeric characters, 
+# it reads the same forward and backward. 
+# Alphanumeric characters include letters and numbers.
+
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        # Two pointer example ----- 
+        l, r = 0, len(s) - 1
+        while l < r:
+            while l< r and not self.alphaNum(s[l]):
+                l += 1
+            while l< r and not self.alphaNum(s[r]):
+                r -= 1
+            if s[l].lower() != s[r].lower():
+                return False
+            l,r = l + 1, r - 1
+
+        return True
+
+
+    def alphaNum(self, c):
+        return (ord('A') <= ord(c) <= ord("Z") or 
+                ord('a') <= ord(c) <= ord("z") or 
+                ord('0') <= ord(c) <= ord("9"))
+    
+p = "A man, a plan, a canal: Panama"
+sol = Solution()
+
+
+print(sol.isPalindrome(p))
+        
+
+# # ---- This solution is the easy brute force method --- 
+# parsed = ""
+# for character in s:
+#     if character.isalnum():
+#         parsed = parsed + character.lower()
+# return parsed == parsed[::-1]
+
+# --------------------------------------------------------------------------------
+# In the solution below, I understood the meaning of a palindrome and  got focused on breaking it in half and checking both halves Which probably is pretty unnecessary. 
+    
+# if len(parsed) <= 1:
+#     return True
+# # if odd get center and split two strings by it
+# midpoint = len(parsed)//2
+# left = parsed[:(midpoint)]
+
+# if (len(parsed) % 2 != 0):
+#     right = parsed[midpoint+1:]
+# else:
+#     right = parsed[midpoint:]
+# if left == right[::-1]:
+#     # Palindrome is valid if left is == right in reverse
+#     return True
+# return False
+
+
+

@@ -26,9 +26,9 @@ class Solution:
                     res[ch] = 1
             frequency.append(res)
             # Here is where we would analyze the frequency after each word. Implement some sort of small section check while 
-    
 
         print(frequency)
+        
     
 words = ["cool","lock","cook"]
 s = Solution()
