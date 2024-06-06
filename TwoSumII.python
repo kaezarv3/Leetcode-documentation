@@ -12,7 +12,7 @@ class Solution:
         res = []
         for i in range(len(numbers)):
             for j in range(len(numbers)):
-                if numbers[j] == numbers[i]:
+                if numbers[j] == numbers[i] and j == i:
                     continue
                 if numbers[j] + numbers[i] == target:
                     res.append(i + 1)
