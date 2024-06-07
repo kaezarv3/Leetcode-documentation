@@ -1,0 +1,14 @@
+class Solution:
+    def twoSum(self, nums: list[int], target: int) -> list[int]:
+        prevMap = {} #val : index
+
+        for i, n in enumerate(nums):
+            diff = target - n
+            if diff in prevMap:
+                return [prevMap[diff], i]
+            prevMap[n] = i
+    
+
+# His method is a "one pass" method where we traverse the list of ints once using enumweate to keep track of indexes.
+# Enumerate over a list to collect val : index pairs. Makes it easy to analyze a list
+        
