@@ -1,0 +1,24 @@
+
+class Solution:
+    def threeSum(self, nums: list[int]) -> list[list[int]]:
+        res = []
+        nums.sort()
+        for i, a in enumerate(nums):
+            if i> 0 and a == nums[i-1]:
+                continue
+            
+            # Left right pointer method here    
+            # Looking at the problem, you pick the first number and just run twosum 2 on the organized list.
+            l, r = i + 1, len(nums) - 1
+            while l < r :
+                threeSum = a + nums[i] + nums[r]
+                # 0 IS What the three numbers should come to. 
+                if threeSum > 0:
+                    r -= 1
+                elif threeSum < 0:
+                    l +=1
+                else:
+                    res.append([a,nums[l], nums[r]])
+                    l += 1
+                    while nums[l] == nums[l - 1] and l<r :
+                        l += 1

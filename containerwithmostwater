@@ -1,0 +1,24 @@
+class Solution:
+    def maxArea(self, height: list[int]) -> int:
+        # Solution has linear time O(n)
+        # Max area is calculated from (pos2-pos1) * min(height[pos1], height[pos2])
+        res = 0
+        # Solve with two pointers
+        l, r = 0, (len(height) - 1)
+        while l < r:
+            curr_area = (min(height[l], height[r]) * (r-l))
+            res = max(res, curr_area)
+            # increment the pointer withe the smaller height to its appropriate direction.
+            if height[l] > height[r]:
+                r -= 1
+            else:
+                l += 1
+            
+        return res
+
+
+    
+sol = Solution()
+
+inp = [1,8,6,2,5,4,8,3,7]
+print(sol.maxArea(inp))
