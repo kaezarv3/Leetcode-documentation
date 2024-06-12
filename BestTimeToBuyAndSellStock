@@ -1,4 +1,7 @@
 # Sliding Window technique with two pointers? 
+# Yes and neetcode does a good job at this. 
+# Being able to identify patterns in problems are important, 
+# Like I have to be able to visualize the technique or algorithm that should be used when I see the problem 
 
 class Solution:
     def maxProfit(self, prices: list[int]) -> int:
@@ -13,7 +16,10 @@ class Solution:
                 prof = max(diff, prof)
             else:
                 l = r
+            # To visualise this, Imagine starting at a small section on the left and right, 
+            # and just extending to the right until we are done finding increases in price over whatever day
             r += 1
+        
         return prof
 
 pri = [7,1,5,3,6,4]
