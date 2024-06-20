@@ -1,0 +1,19 @@
+
+# Given a string and an integer, "You can" Choose ANY character of the string and change it to ANY other Uppercase Letter (in the string) a maximum of k times
+# ^ this problem is written so bogus....
+
+# Result should be the length of the longest substring that contains the same letter you can get after replacing any character of the string with any other uppercase letter in the string
+# ???????? Prime confusion but input output examples help 
+
+# Basically the result is the length of the longest substring of the same letter after replacement. So "AAA" in "ABABA" k=1 or "BBB" is valid. AKA 3
+# The optimal solution is possibly a sliding window one 
+
+class Solution:
+    def characterReplacement(self, s: str, k: int) -> int:
+        l = 0
+        win = []
+        for i in range(len(s)):
+            for j in range(k):
+                
+# PAUSED HERE ----------------------------------
+# we should be selecting where to place the replacement letter. 

@@ -44,27 +44,54 @@ s consists of English letters, digits, symbols and spaces.
 # print(sol.lengthOfLongestSubstring("pwwkew")) 
 # print(sol.lengthOfLongestSubstring("dvdf")) 
 # -------------------------------------------------------------------version1-broke-at-dvdf------v2-from-ai-but-works---------------------------------------------------------------------------------------------------
+# class Solution:
+#     def lengthOfLongestSubstring(self, s: str) -> int:
+#         running_max = 0
+#         temp = []
+#         for end in range(len(s)):
+#             if s[end] in temp:
+#                 while temp and s[end] in temp:
+#                     # While Temp is not empty AND while the current character is inside of temp
+#                     temp.pop(0)
+#                     # remove from front of temp list
+#             temp.append(s[end])
+#             running_max = max(running_max, len(temp))
+#         return running_max
+# # missing sol 
+# sol2 = Solution()
+# print(sol2.lengthOfLongestSubstring("abcabcbb")) 
+# print(sol2.lengthOfLongestSubstring("bbbbb")) 
+# print(sol2.lengthOfLongestSubstring("pwwkew")) 
+# print(sol2.lengthOfLongestSubstring("dvdf")) 
+
+# Time complexity is garbage, I wonder if I should care about it. 
+
+# ------------------------------------------------------------- Neetcode Sliding Window Technique -----------------------------------------
+
+
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        running_max = 0
-        temp = []
-        for end in range(len(s)):
-            if s[end] in temp:
-                while temp and s[end] in temp:
-                    # While Temp is not empty AND while the current character is inside of temp
-                    temp.pop(0)
-                    # remove from front of temp list
-            temp.append(s[end])
-            running_max = max(running_max, len(temp))
-        return running_max
-# missing sol 
+        l = 0
+        res = 0
+        charSet = set()
+        # Substring should be a set
+        for r in range(len(s)):
+            # We iterate through the length of the list for "r". 
+            while s[r] in charSet:
+                # Basically, If duplicate in our set, Remove it from the set and move to the next (update window also)
+                charSet.remove(s[l])
+                l += 1
+            # After removing all duplicates update result variable
+            charSet.add(s[r])
+            # r - l + 1 is just the length of the current substring.  
+            res = max(res, r - l + 1)
+        return res
+            
 sol2 = Solution()
 print(sol2.lengthOfLongestSubstring("abcabcbb")) 
 print(sol2.lengthOfLongestSubstring("bbbbb")) 
 print(sol2.lengthOfLongestSubstring("pwwkew")) 
-print(sol2.lengthOfLongestSubstring("dvdf")) 
-
-# Time complexity is garbage, I wonder if I should care about it. 
-
-
+print(sol2.lengthOfLongestSubstring("dvdf"))  
+    
+    
 
