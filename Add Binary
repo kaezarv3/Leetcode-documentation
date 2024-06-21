@@ -1,12 +1,12 @@
+
 class Solution:
     def addBinary(self, a: str, b: str) -> str:
-        print(int(a,2))
-        print(int(b,2))
-        print(bin(int(a,2) + int(b,2))) 
+        # Bin adds "0b" as prfix befort output string. 
+        
         return str(bin(int(a,2) + int(b,2)))[2:]
     
 # Working first try solution no help required. This was really cool.
-
+# Here we learned about Bin and its ability to convert integers to binary
 
 sol = Solution()
 
