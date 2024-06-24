@@ -9,3 +9,9 @@ class Solution:
             one = one + two 
             two = temp
         return one 
+    
+    
+    
+    # Neetcode Solution with dynamic programming, Mentions DFS and for the visualization of this problem, 
+    # used a decision tree. Starting from the right end we can get the number of solutions easily
+    # Drawing the problem out using a graph or number line can be very important. 

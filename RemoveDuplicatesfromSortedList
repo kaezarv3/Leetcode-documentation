@@ -1,0 +1,28 @@
+# Definition for singly-linked list.
+
+class ListNode(object):
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution(object):
+    def deleteDuplicates(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+            # While head is not none, Traverse through it
+            # If we find an already found value, skip adding it to our result linked list. 
+                # If the value is in our set, skip this one, and do not add it to our result
+
+        res = head
+        while res: 
+            while res.next and res.val == res.next.val:
+                res.next = res.next.next
+            res = res.next    
+        return res
+
+# Neetcode example Gaining an understanding of linked list problems A little 
+
+            
+        

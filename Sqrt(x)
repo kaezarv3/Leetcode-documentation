@@ -7,4 +7,5 @@ sol = Solution()
 
 print(sol.mySqrt(92))
 
-        
+# this one was pretty ez but maybe I misunderstood the question and took the easy route
+# looked at other solutions, Eh i like this one
