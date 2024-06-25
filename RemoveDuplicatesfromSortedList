@@ -20,7 +20,9 @@ class Solution(object):
             while res.next and res.val == res.next.val:
                 res.next = res.next.next
             res = res.next    
-        return res
+        return head
+    
+    
 
 # Neetcode example Gaining an understanding of linked list problems A little 
 

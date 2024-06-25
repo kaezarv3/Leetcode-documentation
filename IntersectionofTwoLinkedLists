@@ -1,0 +1,25 @@
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):
+    def getIntersectionNode(self, headA, headB):
+        """
+        :type head1, head1: ListNode
+        :rtype: ListNode
+        """
+        # The easy solutuion collects A into a hash set and then iterates through B until I find a copy of the iterated node in B inside of our hash set. 
+        l1, l2 = headA, headB
+        
+        # Visualizing it, The intersection of two linked lists appears when 
+        while l1 != l2:
+            # While not intersecting - Traverse l1 and l2 by 1 IF they exist
+            # If they do not exist, set the pointer to the other head node
+            
+            l1 = l1.next if l1 else headB 
+            l2 = l2.next if l2 else headA
+            
+            # Not sure how this works but it does 
+        return l1
