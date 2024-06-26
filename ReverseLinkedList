@@ -1,0 +1,44 @@
+# Two pointers to reverse a Linked list
+
+# Definition for singly-linked list.
+
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+# class Solution(object):
+#     def reverseList(self, head):
+#         """
+#         :type head: ListNode
+#         :rtype: ListNode
+#         """
+#         # T O(n), M O(n) -- In this problem, we use a previous node to add some extra functionality. 
+#         curr = head
+#         prev = None
+#         while head:
+#             nxt = curr.next
+#             curr.next = prev
+#             prev = curr
+#             curr = nxt
+#         return prev
+# ^ This is the iterative solution, Good time complexity, not the best space complexity
+# 
+
+class Solution(object):
+    def reverseList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """        
+        if not head:
+            return None
+        
+        newHead = head
+        if head.next:
+            newHead = self.reverseList(head.next)
+            head.next.next = head
+        head.next = None
+        return newHead
+    
+    # Recursive version 
