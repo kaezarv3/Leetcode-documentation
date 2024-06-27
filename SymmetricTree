@@ -1,0 +1,32 @@
+# Definition for a binary tree node.
+class TreeNode(object):
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+        
+class Solution(object):
+    def isSymmetric(self, root):
+        # For this problem, I notice that the problem is the same as the same tree problem,
+        # just with the opposite path, basically dfs in reverse. 
+        # if dfs in reverse path is same path on other side 
+        
+        # ^^ The solution is literally making a dfs function and calling it recursively 
+        l, r   = root.left, root.right
+        
+        def dfs(l,r):
+            if not l and not r:
+                return True    
+            if not l or not r:
+                return False
+            
+            return (l.val == r.val and 
+                    dfs(l.left, r.right) and  # << this expands outwards 
+                    dfs(l.right,r.left))  # << this expands inward 
+        
+        return dfs(l,r)
+        
+        
+        
+         
+    
