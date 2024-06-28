@@ -22,4 +22,5 @@ class Solution:
             self.minDepth = min(self.minDepth, cur_depth + 1)
         self.dfs(node.left, cur_depth + 1)
         self.dfs(node.right, cur_depth + 1)
-    
+
+# A not intuitive solution honestly. 

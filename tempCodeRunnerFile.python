@@ -1,6 +1,3 @@
-# while dummy1:
-#     print(dummy1.val)
-#     dummy1 = dummy1.next
-# while dummy2:
-#     print(dummy2.val)
-#     dummy2 = dummy2.next
+numbers = [0,0,1,1,1,2,2,3,3,4]
+sol = Solution()
+print(sol.removeDuplicates(numbers))

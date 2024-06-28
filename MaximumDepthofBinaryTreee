@@ -11,6 +11,7 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
+        # The only base case in this problem is when we reach an empty node
         if not curr:
             return 0
         
@@ -20,4 +21,5 @@ class Solution(object):
     
         # the result is incremented by 1 if we do not have an empty 
         # current node aka reach the depth of a subtree 
-            
+
+# Here we also find out that finding the max depth is VERY easy, and probably is a subproblem for alot of graph dfs problems. 
