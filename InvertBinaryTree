@@ -1,0 +1,28 @@
+# Definition for a binary tree node.
+
+class TreeNode(object):
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution(object):
+    def invertTree(self, root):
+        """
+        :type root: TreeNode
+        :rtype: TreeNode
+        """
+        if not root:
+            return None
+        
+        curr = root
+        temp = curr
+        # Inversion performed here 
+        curr.left, curr.right = temp.right, temp.left
+        
+        self.invertTree(curr.left)
+        self.invertTree(curr.right)
+        return root
+        
+    # Good for understanding DFS, YOU CAME UP WITH THIS MOSTLY !! woo 
+    

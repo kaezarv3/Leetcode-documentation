@@ -1,0 +1,27 @@
+# Definition for a binary tree node.
+
+class TreeNode(object):
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution(object):
+    def inorderTraversal(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        result = []
+        # When in doubt, turn it into a function. You were mostly correct.  
+        def inorder(root):        
+            if not root:
+                return result
+            inorder(root.left)
+            result.append(root.val)
+            inorder(root.right)
+        
+        inorder(root)
+        # Wonky variable access outside of function. 
+        
+        return result        
