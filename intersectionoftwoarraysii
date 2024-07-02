@@ -1,0 +1,19 @@
+ class Solution:
+    def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        hashy = {}
+        for i in nums1:
+            if i in hashy:
+                hashy[i] += 1
+            else:
+                hashy[i] = 1
+        res = []
+        for j in nums2:
+            if j in hashy and hashy[j] > 0:
+                res.append(j)
+                hashy[j] -= 1
+        return res 
+    
+    #  Finds the intersection of two arrays and outputs it as an array with the common terms
+    
+    # Pretty simple logic here 
+    

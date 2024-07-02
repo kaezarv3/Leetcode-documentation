@@ -1,0 +1,32 @@
+class Solution:
+    def reverseVowels(self, s: str) -> str:
+        # Take vowels and their indexes
+        # Use left and right pointer, swap when both pointers are at a vowel.
+        vowels = 'AaeEiIoOuU'
+        s = list(s)
+        l, r = 0, len(s) - 1
+        while l < r:
+            # When left and right at a vowel
+            # When x at vowel
+            if s[l] in vowels and s[r] in vowels:
+                # perform swap
+                temp, temp2 = s[l], s[r]
+                s[l], s[r] = temp2, temp
+                # Values swapped at our indexes
+            elif s[l] in vowels and s[r] not in vowels:
+                r -= 1
+            elif s[r] in vowels and s[l] not in vowels:
+                l += 1
+            else:
+                # When neither one is a vowel
+                l += 1
+                r -=1
+                
+        return "".join(s)
+        # First attempt solution no looking
+
+sol = Solution()
+
+print(sol.reverseVowels('hello'))
+
+
