@@ -1,0 +1,9 @@
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        words = reversed(s.split())
+        return " ".join(words)
+        
+        
+s = "    the sky is blue"
+sol = Solution()
+sol.reverseWords(s)
