@@ -1,0 +1,43 @@
+class Solution:
+    def canPlaceFlowers(self, flowerbed: list[int], n: int) -> bool:
+        
+        def canPlantHere(flowerbed: list[int], ind: int) -> bool:
+            
+            # HOW DO I CHECK IF AN INDEX IS VALID?
+            left, right, curr = flowerbed[ind-1], flowerbed[ind+1], flowerbed[ind]
+            # Try to check for index errors. -< think im close but this problem sucks. Getting neetcode. 
+            try: 
+                if curr and right and left:
+                    res = curr == 0 and left == 0 and right == 0
+                    return res
+            except:
+                return False
+            
+        l, r = 0, len(flowerbed) - 1
+        
+        while l <= r and n > 0:
+            if canPlantHere(flowerbed,l):
+                n -= 1
+                if n == 0:
+                    return True
+                
+                l += 2
+            if canPlantHere(flowerbed,r):
+                n -= 1
+                if n == 0:
+                    return True
+                
+                r -= 2
+            
+            r -= 1
+            l += 1
+        
+        if n == 0:
+            return True
+        return False 
+
+
+flowerbedd = [1,0,0,0,1]
+nn = 1
+sol = Solution()
+print(sol.canPlaceFlowers(flowerbedd,nn))          
