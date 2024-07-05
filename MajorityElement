@@ -1,0 +1,20 @@
+from collections import Counter
+class Solution:
+    def majorityElement(self, nums: list[int]) -> int:
+        dicty = {} 
+        for i in nums:
+            if i in dicty:
+                dicty[i] += 1
+                if dicty[i] > (len(nums)/2):
+                    return i
+            else:
+                dicty[i] = 1
+        return max(dicty, key= dicty.get)
+    
+nums = [2,2,1,1,1,2,2]
+# BEtter solution Here
+class Solution:
+    def majorityElement(self, nums: list[int]) -> int:
+        nums.sort()
+        n = len(nums)
+        return nums[n//2]
