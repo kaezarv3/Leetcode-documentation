@@ -1,3 +1,13 @@
-numbers = [0,0,1,1,1,2,2,3,3,4]
-sol = Solution()
-print(sol.removeDuplicates(numbers))
+# https://docs.python.org/3/library/tkinter.html
+
+# from tkinter import *
+# from tkinter import ttk 
+
+
+# root = Tk()
+# frm = ttk.Frame(root, padding=100)
+# frm.grid()
+# ttk.Label(frm, text="Hello World!").grid(column=0, row=0)
+# but = ttk.Button(frm, text="Quit", command=root.destroy).grid(column=0, row=0)
+# but2 = ttk.Button(frm, text="Quit AGAIN", command=root.destroy).grid(column=1, row=0)
+# root.mainloop()

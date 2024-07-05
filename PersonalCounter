@@ -1,0 +1,29 @@
+# 
+# playing around with Tkinter here, not much figured out honestly 
+
+def countit():
+    count = 0
+    print("welcome to Countit, just press [enter] to increment count.")
+    state = False
+
+    while True:
+        inp = input()
+        if inp == "end":
+            return count
+        if inp == "":
+            if not state:
+                count += 1
+                print("Total: ", count)
+            if state:
+                count += 2
+                print("Total: ", count)
+        if inp == "r":
+            print("Count has been reset")
+            count = 0 
+        if inp == '1':
+            state = True
+            print("State has been changed to increment by 2")
+            continue
+        
+countit() 
+                        

@@ -1,0 +1,59 @@
+
+class Solution:
+    def moveZeroes(self, nums: list[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        # New solution, 
+        res = {}
+        for i in range(len(nums)- 1):
+            # Needs conditional to check and see if 
+            if nums[i] == 0 and nums[i] in res:
+                res[0] += 1
+            if nums[i] == 0 and nums[i] not in res: 
+                res[0] = 1
+        if len(res) > 0:
+            while res[0] > 0:
+                res[0] -= 1
+                
+     
+        # nums = nums + res 
+                
+# Brute force
+
+nums = [0]
+
+sol = Solution()
+
+sol.moveZeroes(nums)
+print(nums)
+
+
+
+
+# class Solution:
+#     def moveZeroes(self, nums: List[int]) -> None:
+#         """
+#         Do not return anything, modify nums in-place instead.
+#         """
+#         l ,r = 0, len(nums) - 1
+#         while l< r:
+#             if nums[l] == 0:
+#                 nums.append(nums.pop(l))
+#                 l += 1
+#             if nums[r] == 0:
+#                 nums.append(nums.pop(r))
+#                 r -= 1
+
+
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        left = 0
+
+        for right in range(len(nums)):
+            if nums[right] != 0:
+                nums[right], nums[left] = nums[left], nums[right]
+                left += 1
+        
+        return nums
+        # Cool solution, works by swapping a 0 with the indexes using pointers. 

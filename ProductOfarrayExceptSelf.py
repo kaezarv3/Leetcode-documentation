@@ -37,8 +37,11 @@ class Solution:
             prefix *= nums[i]
         postfix = 1
         for i in range(len(nums)-1, -1, -1):
+            # Starting backwards from the end of the list 
             res[i] *= postfix
+            # Change the results in the result list 
             postfix *= nums[i]
+            # keep it going. Problem is better understood now
         return res
 
 
