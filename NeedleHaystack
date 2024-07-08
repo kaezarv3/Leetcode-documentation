@@ -1,0 +1,18 @@
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        l, r = 0, len(needle) - 1
+        while r < len(haystack):
+            window = haystack[l:r + 1]
+            if window == needle:
+                return l
+            l += 1
+            r += 1
+        return -1
+    
+sol = Solution()
+
+need = "sad"
+hay = "sadbutsad"
+print(sol.strStr(hay, need))
+
+# I DID THIS ON MY OWNNNN OM GHAGJAHSHIKHSAFHAIFSGIAGDSIJHG i really ate that guys

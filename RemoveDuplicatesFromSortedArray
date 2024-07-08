@@ -22,21 +22,29 @@ from typing import List
                 
 # Complicated half solution. 
 
-class Solution:
-    def removeDuplicates(self, nums: List[int]) -> int:
-        setty = set()
-        for item in nums:
-            if item in setty:
-                ind = nums.index(item)
-                del nums[ind]
+# class Solution:
+#     def removeDuplicates(self, nums: List[int]) -> int:
+#         setty = set()
+#         for item in nums:
+#             if item in setty:
+#                 ind = nums.index(item)
+#                 del nums[ind]
                 
-            setty.add(item)
+#             setty.add(item)
         
-        return setty
+#         return setty
     
+
+
+# Actually stuck, Needs help 
+
+class Solution:
+    def removeDuplicates(self, nums):
+        nums[:] = sorted(list(set(nums))) 
+        return len(nums)
+
 numbers = [0,0,1,1,1,2,2,3,3,4]
 sol = Solution()
 print(sol.removeDuplicates(numbers))
 
-
-# Actually stuck, Needs help 
+# Crazy simple solution. 
